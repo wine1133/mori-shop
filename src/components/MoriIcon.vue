@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { assetUrl } from '@/utils/asset'
 
 const props = withDefaults(
   defineProps<{
@@ -15,7 +16,7 @@ const props = withDefaults(
 
 const src = computed(() => {
   const suffix = props.tone === 'ink' ? '' : `-${props.tone}`
-  return `/static/icons/${props.name}${suffix}.png`
+  return assetUrl(`/static/icons/${props.name}${suffix}.png`)
 })
 
 const dimension = computed(() => (typeof props.size === 'number' ? `${props.size}rpx` : props.size))

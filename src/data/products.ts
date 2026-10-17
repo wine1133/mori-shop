@@ -1,6 +1,7 @@
 import type { Product } from '@/types/shop'
+import { assetUrl } from '@/utils/asset'
 
-export const products: Product[] = [
+const rawProducts: Product[] = [
   {
     id: 'P01',
     name: '雾岸 · 轻羊毛廓形大衣',
@@ -323,6 +324,11 @@ export const products: Product[] = [
     care: '冷水反面洗涤，减少浸泡。首次洗涤可能轻微掉色。'
   }
 ]
+
+export const products: Product[] = rawProducts.map((product) => ({
+  ...product,
+  images: product.images.map(assetUrl)
+}))
 
 export const categories = ['全部', '外套', '针织', '包袋', '下装', '上装', '鞋履', '配饰']
 

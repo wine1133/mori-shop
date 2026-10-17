@@ -5,9 +5,11 @@ import MoriIcon from '@/components/MoriIcon.vue'
 import TabBar from '@/components/TabBar.vue'
 import { useShop } from '@/stores/shop'
 import type { Address } from '@/types/shop'
+import { assetUrl } from '@/utils/asset'
 import { money } from '@/utils/format'
 
 const { state, updateAddress, syncOrders } = useShop()
+const avatarImage = assetUrl('/static/products/look-03.jpg')
 
 const addressSheetOpen = ref(false)
 const form = reactive<Address>({ ...state.address })
@@ -100,7 +102,7 @@ function openOrder(orderId: string) {
 
       <view class="profile-user">
         <view class="avatar-wrap">
-          <image class="avatar" src="/static/products/look-03.jpg" mode="aspectFill" />
+          <image class="avatar" :src="avatarImage" mode="aspectFill" />
           <view class="avatar__badge">
             <MoriIcon name="leaf" tone="white" :size="18" />
           </view>

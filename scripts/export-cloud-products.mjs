@@ -15,7 +15,7 @@ const compiled = ts.transpileModule(source, {
 
 const module = { exports: {} }
 const run = new Function('exports', 'module', 'require', compiled)
-run(module.exports, module, () => ({}))
+run(module.exports, module, (id) => id === '@/utils/asset' ? { assetUrl: (path) => path } : {})
 
 const products = module.exports.products.map((product, index) => ({
   _id: product.id,

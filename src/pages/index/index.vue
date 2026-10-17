@@ -7,6 +7,7 @@ import TabBar from '@/components/TabBar.vue'
 import { categories, products } from '@/data/products'
 import { fetchProductList } from '@/api/shop'
 import type { Product } from '@/types/shop'
+import { assetUrl } from '@/utils/asset'
 import { useShop } from '@/stores/shop'
 
 const { state, cartCount } = useShop()
@@ -19,7 +20,7 @@ const heroSlides = [
     title: ['流动的秋日', '藏在每一帧光影里'],
     subtitle: '一段关于材质、光线与日常的影像',
     cta: '探索本季',
-    image: '/static/videos/mori-brand-poster.jpg'
+    image: assetUrl('/static/videos/mori-brand-poster.jpg')
   },
   {
     type: 'image',
@@ -27,7 +28,7 @@ const heroSlides = [
     title: ['把秋日的', '松弛穿在身上'],
     subtitle: '自然材质 · 克制剪裁 · 长久陪伴',
     cta: '探索本季',
-    image: '/static/products/hero-autumn-portrait.jpg'
+    image: assetUrl('/static/products/hero-autumn-portrait.jpg')
   },
   {
     type: 'image',
@@ -35,9 +36,12 @@ const heroSlides = [
     title: ['慢一点，', '让衣服与你相处得更久'],
     subtitle: '在耐看的廓形里，找到自己的节奏',
     cta: '阅读手记',
-    image: '/static/products/look-07.jpg'
+    image: assetUrl('/static/products/look-07.jpg')
   }
 ]
+const heroAudioVideo = assetUrl('/static/videos/mori-brand.mp4')
+const heroAudioPoster = assetUrl('/static/videos/mori-brand-poster.jpg')
+const journalImage = assetUrl('/static/products/look-07-journal.jpg')
 const activeHero = ref(0)
 const videoMuted = ref(true)
 let heroVideoContext: any = null
@@ -194,8 +198,8 @@ function resetFilters() {
               v-if="slide.type === 'video'"
               id="hero-video"
               class="hero__video"
-              src="/static/videos/mori-brand.mp4"
-              poster="/static/videos/mori-brand-poster.jpg"
+              :src="heroAudioVideo"
+              :poster="heroAudioPoster"
               autoplay
               :muted="videoMuted"
               loop
@@ -319,7 +323,7 @@ function resetFilters() {
 
     <view id="journal" class="journal">
       <view class="journal__image-wrap">
-        <image class="journal__image" src="/static/products/look-07-journal.jpg" mode="aspectFill" />
+        <image class="journal__image" :src="journalImage" mode="aspectFill" />
         <view class="journal__stamp">
           <text>MORI</text>
           <text>NOTES</text>

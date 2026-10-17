@@ -1,5 +1,6 @@
 import { products as localProducts, findProduct } from '@/data/products'
 import type { Address, Order, Product } from '@/types/shop'
+import { assetUrl } from '@/utils/asset'
 
 declare const uniCloud: any
 
@@ -10,6 +11,13 @@ export interface CloudOutcome<T> {
   cloudUsed: boolean
   data?: T
   message?: string
+}
+
+function normalizeProduct(product: Product): Product {
+  return {
+    ...product,
+    images: Array.isArray(product.images) ? product.images.map(assetUrl) : []
+  }
 }
 
 function cloudAvailable() {
@@ -103,7 +111,7 @@ export async function fetchProductList(params: { page?: number; pageSize?: numbe
     category: params.category || '全部'
   })
   if (outcome.ok && Array.isArray(outcome.data?.list)) {
-    return { products: outcome.data.list, cloudUsed: true }
+    return { products: outcome.data.list.map(normalizeProduct), cloudUsed: true }
   }
   return { products: localProducts, cloudUsed: false }
 }
@@ -111,7 +119,7 @@ export async function fetchProductList(params: { page?: number; pageSize?: numbe
 export async function fetchProductDetail(productId: string) {
   const outcome = await callCloud<Product>('product-detail', { productId })
   if (outcome.ok && outcome.data) {
-    return { product: outcome.data, cloudUsed: true }
+    return { product: normalizeProduct(outcome.data), cloudUsed: true }
   }
   return { product: findProduct(productId) || null, cloudUsed: false }
 }
