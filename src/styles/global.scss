@@ -1,0 +1,130 @@
+page,
+:root {
+  --mori-bg: #f4f0e8;
+  --mori-surface: #fffdf8;
+  --mori-surface-alt: #ece7dc;
+  --mori-ink: #1d211c;
+  --mori-ink-soft: #3f443e;
+  --mori-muted: #7c7a70;
+  --mori-muted-light: #a6a297;
+  --mori-line: rgba(29, 33, 28, 0.12);
+  --mori-line-strong: rgba(29, 33, 28, 0.22);
+  --mori-accent: #b75438;
+  --mori-accent-deep: #8f3c27;
+  --mori-forest: #263c32;
+  --mori-sage: #879581;
+  --mori-gold: #b49a68;
+  --mori-serif: 'Cormorant Garamond', 'Times New Roman', 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+  --mori-sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  min-height: 100%;
+  background: var(--mori-bg);
+  color: var(--mori-ink);
+  font-family: var(--mori-sans);
+  font-size: 28rpx;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+view,
+scroll-view,
+swiper,
+swiper-item,
+image,
+text,
+button,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+image {
+  display: block;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+}
+
+button::after {
+  display: none;
+}
+
+.plain-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  line-height: 1;
+}
+
+.page-wrap {
+  min-height: 100vh;
+  background: var(--mori-bg);
+}
+
+.safe-top {
+  padding-top: calc(var(--status-bar-height) + 20rpx);
+}
+
+.mori-serif {
+  font-family: var(--mori-serif);
+}
+
+.eyebrow {
+  font-size: 20rpx;
+  font-weight: 600;
+  letter-spacing: 4rpx;
+  text-transform: uppercase;
+  color: var(--mori-muted);
+}
+
+.section-title {
+  font-family: var(--mori-serif);
+  font-size: 50rpx;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -1rpx;
+}
+
+.section-rule {
+  height: 1rpx;
+  background: var(--mori-line);
+}
+
+.fade-up {
+  animation: mori-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes mori-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  html,
+  body,
+  uni-app {
+    background: #ddd6c9;
+  }
+
+  uni-page-body,
+  .h5-phone-frame {
+    width: 540px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: var(--mori-bg);
+    box-shadow: 0 0 100px rgba(49, 43, 34, 0.16);
+  }
+}

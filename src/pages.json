@@ -1,0 +1,45 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "MORI 木里",
+        "backgroundColor": "#f4f0e8"
+      }
+    },
+    {
+      "path": "pages/detail/detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "商品详情",
+        "backgroundColor": "#f4f0e8"
+      }
+    },
+    {
+      "path": "pages/cart/cart",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "购物袋",
+        "backgroundColor": "#f4f0e8"
+      }
+    },
+    {
+      "path": "pages/profile/profile",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "个人中心",
+        "backgroundColor": "#f4f0e8"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationStyle": "custom",
+    "backgroundColor": "#f4f0e8",
+    "backgroundTextStyle": "dark",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "MORI 木里",
+    "rpxCalcMaxDeviceWidth": 540,
+    "rpxCalcBaseDeviceWidth": 540
+  }
+}

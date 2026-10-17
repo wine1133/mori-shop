@@ -1,0 +1,8 @@
+{
+  "name": "create-order",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "mori-shared": "file:../common/mori-shared"
+  }
+}

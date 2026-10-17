@@ -1,0 +1,34 @@
+{
+  "bsonType": "object",
+  "required": ["name", "price", "category", "images", "sizes", "status"],
+  "permission": {
+    "read": true,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": { "description": "商品 ID，例如 P01" },
+    "name": { "bsonType": "string", "description": "商品中文名称" },
+    "englishName": { "bsonType": "string", "description": "商品英文名称" },
+    "subtitle": { "bsonType": "string", "description": "商品副标题" },
+    "price": { "bsonType": "number", "description": "当前售价，单位元" },
+    "originalPrice": { "bsonType": "number", "description": "划线价，单位元" },
+    "category": { "bsonType": "string", "description": "商品分类" },
+    "images": { "bsonType": "array", "description": "商品图片路径列表" },
+    "aspect": { "bsonType": "string", "description": "首页瀑布流图片比例" },
+    "tag": { "bsonType": "string", "description": "商品标签" },
+    "rating": { "bsonType": "number", "description": "评分" },
+    "reviews": { "bsonType": "number", "description": "评价数量" },
+    "sold": { "bsonType": "number", "description": "销量" },
+    "colors": { "bsonType": "array", "description": "颜色选项" },
+    "sizes": { "bsonType": "array", "description": "尺码与库存" },
+    "description": { "bsonType": "string", "description": "商品描述" },
+    "material": { "bsonType": "string", "description": "材质说明" },
+    "care": { "bsonType": "string", "description": "洗护说明" },
+    "status": { "bsonType": "string", "description": "销售状态：on_sale / off_sale" },
+    "sort": { "bsonType": "number", "description": "列表排序" },
+    "created_at": { "bsonType": "number", "description": "创建时间戳" },
+    "updated_at": { "bsonType": "number", "description": "更新时间戳" }
+  }
+}
