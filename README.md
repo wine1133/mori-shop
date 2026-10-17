@@ -2,6 +2,8 @@
 
 GitHub: <https://github.com/wine1133/mori-shop>
 
+在线预览：<https://wine1133.github.io/mori-shop/>
+
 一个基于 **uni-app + Vue 3 + TypeScript + uniCloud 云函数** 的跨端电商项目。同一套代码可编译为：
 
 - 微信小程序
@@ -34,6 +36,11 @@ GitHub: <https://github.com/wine1133/mori-shop>
 创建订单后支付状态固定为 `unpaid / 未支付`，暂未实现支付调用。小程序与 App 使用 `uniCloud.callFunction`，H5 支持云函数 URL 化或回退到本地演示数据。
 
 详见 [云函数后端文档](docs/CLOUD_FUNCTIONS.md)。
+
+## 在线预览
+
+- GitHub Pages：<https://wine1133.github.io/mori-shop/>
+- 自动部署工作流：`.github/workflows/deploy-pages.yml`
 
 ## 本地预览
 
